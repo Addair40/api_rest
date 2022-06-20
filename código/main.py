@@ -75,7 +75,7 @@ async def put_cliente(cliente=Cliente):
     with sqlite3.connect('sql/clientes.sqlite') as connection:
         connection.row_factory = sqlite3.Row
         cursor = connection.cursor()
-        cursor.execute("UPDATE clientes SET nombre = ignacio, email = addair99@email.com WHERE id_clientes = 4')",
+        cursor.execute("UPDATE clientes SET nombre = addair, email = addair99@email.com WHERE id_clientes = 4')",
         (cliente.id_clientes,cliente.nombre,cliente.email))
         connection.commit()
         connection.close()
