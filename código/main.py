@@ -45,11 +45,11 @@ async def get_clientes(offset:int=0,limit:int=10):
     cursor.execute("SELECT * FROM clientes OFFSET ? LIMIT ?", (offset,limit))
 
 @app.post("/clientes/")
-def post_cliente(nombre: str, email:str):
+def post_clientes(nombre: str, email:str):
     return f"Cliente {nombre} {email} almacenado"
 
 @app.put("/clientes/")
-def put_cliente(nombre: str, email:str):
+def put_clientes(nombre: str, email:str):
     return f"Cliente {nombre} {email} actualizado"
 
 @app.delete("/clientes/{id_clientes}")
