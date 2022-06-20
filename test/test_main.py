@@ -28,7 +28,7 @@ def test_index():
 """
 
 def test_post_cliente():
-    payload = {"id_cliente":4,"nombre":"ignacio","email":"addair@email.com"}
+    payload = {"id_cliente":4,"nombre":"addair","email":"addair@email.com"}
     response = clientes.post("/clientes/", json=payload)
     data = {"message":"guardado"}
     assert response.status_code == 200
