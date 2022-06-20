@@ -46,15 +46,15 @@ async def get_clientes(offset:int=0,limit:int=10):
 
 @app.post("/clientes/")
 def post_clientes(nombre: str, email:str):
-    return f"Cliente {nombre} {email} almacenado"
+    return f"Clientes {nombre} {email} almacenado"
 
 @app.put("/clientes/")
 def put_clientes(nombre: str, email:str):
-    return f"Cliente {nombre} {email} actualizado"
+    return f"Clientes {nombre} {email} actualizado"
 
 @app.delete("/clientes/{id_clientes}")
 def delete_clientes(id_clientes: int):
-    return f"Cliente {id_clientes} eliminado"
+    return f"Clientes {id_clientes} eliminado"
 
 """
 
