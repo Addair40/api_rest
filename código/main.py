@@ -2,6 +2,11 @@ from fastapi import FastAPI
 import sqlite3
 from typing import List
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
+from fastapi.responses import FileResponse
+from fastapi import Depends, FastAPI, HTTPException, status
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
 
 class Respuesta(BaseModel):
     message: str
@@ -12,9 +17,33 @@ class Cliente(BaseModel):
     nombre: str 
     email: str
 
+
 app = FastAPI()
 
-#3.123
+origins = [
+    "http://localhost:8080",
+    "http://127.0.0.1:8000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/", response_class=FileResponse)
+async def redirect_typer():
+    with sqlite3.connect('sql/clientes.sqlite') as connection:
+        connection.row_factory = sqlite3.Row
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM clientes')
+        response = cursor.fetchall()
+    return FileResponse("/workspace/api_rest/frontend/get_clientes.html")
+
+
+
 @app.get("/", response_model=Respuesta)
 def index():
     return {"message": "Hello World"}
@@ -28,8 +57,6 @@ async def clientes():
         response = cursor.fetchall()
         return response
         
-
-
 @app.get("/clientes/{id_cliente}", response_model=Cliente)
 async def clientes():
     with sqlite3.connect('sql/clientes.sqlite')as connection:
@@ -57,6 +84,7 @@ def delete_clientes(id_clientes: int):
     return f"Clientes {id_clientes} eliminado"
 
 """
+
 
 
 @app.post("/clientes/", response_model=Respuesta)
