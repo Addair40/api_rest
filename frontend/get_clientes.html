@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>CLIENTES</title>
+</head>
+<body bgcolor="0E68BE"><center>
+    <h1>LISTA DE CLIENTES</h1>
+    <a href="post_cliente.html">NUEVO REGISTRO</a>
+
+    <table id="tabla_clientes">
+        <thead id="thead_clientes">
+            <tr>
+                <th>DETALLES</th>
+                <th>ACTUALIZAR</th>
+                <th>ELIMINAR</th>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>EMAIL</th>
+            </tr>
+        </thead>
+        <tbody id="tbody_clientes">
+            
+        </tbody>
+    </table>
+    <script type="text/javascript" src="/static/js/get_clientes.js"></script>
+    <script async>
+        document.body.onload = getClientes();
+    </script>
+</body></center>
+</html>
