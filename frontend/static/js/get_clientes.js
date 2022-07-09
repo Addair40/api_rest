@@ -2,7 +2,7 @@ function getClientes(){
     var query = window.location.search.substring(1);
     console.log("Query: " + query)
 
-    //Conectar con el backend
+    
     const request = new XMLHttpRequest();
 
 
