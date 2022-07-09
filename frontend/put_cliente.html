@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title> ACTUALIZAR CLIENTE</title>
+</head>
+<body bgcolor="0E68BE"><center>
+    <h1>ACTUALIZAR CLIENTE</h1>
+    <form id="form_cliente">
+        <label for="id_cliente">ID</label>
+        <br>
+        <input type="text" id="id_cliente" name="id_cliente"/>
+        <br>
+        <label for="nombre">NOMBRE</label>
+        <br>
+        <input type="text" id="nombre" name="nombre"/>
+        <br>
+        <label for="email">EMAIL</label>
+        <br>
+        <input type="email" id="email" name="email"/>
+        <br>
+        <input type="button" value="ACTUALIZAR" onclick="putCliente()"/>
+        <br>
+        <a href="/get_clientes.html">CANCELAR</a>
+    </form>
+    <script type="text/javascript" src="/static/js/put_cliente.js"></script>
+    <script type="text/javascript" src="/static/js/get_cliente.js"></script>
+    <script>
+        document.body.onload = getCliente();
+    </script>
+</body></center>
+</html>
