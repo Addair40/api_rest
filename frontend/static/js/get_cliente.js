@@ -3,7 +3,7 @@ function getCliente(){
     console.log("id_cliente: " + id_cliente);
 
     const request = new XMLHttpRequest();
-    request.open("GET", "https://8000-addair40-apirest-f10xdgpxpdk.ws-us53.gitpod.io/clientes/"+id_cliente,true);
+    request.open("GET", "https://8000-addair40-apirest-f10xdgpxpdk.ws-us59.gitpod.io/clientes/"+id_cliente,true);
     request.setRequestHeader("Accept", "application/json");
 
     request.onload = () =>{
